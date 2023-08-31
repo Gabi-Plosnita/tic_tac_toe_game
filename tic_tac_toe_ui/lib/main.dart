@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe_ui/pages/game_page.dart';
-import 'package:tic_tac_toe_ui/pages/home_page.dart';
+import 'package:tic_tac_toe_ui/pages/home_page/home_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -14,7 +14,7 @@ class MainApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: GamePage(),
+        body: HomePage(),
         ),
       );
   }
