@@ -19,3 +19,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/X.png
+    - assets/X_transparent.png
+    - assets/O.png
+    - assets/O_transparent.png
+    - assets/logo.png
+    - assets/logo_transparent.png
