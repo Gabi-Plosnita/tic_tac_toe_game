@@ -23,11 +23,11 @@ class BoardUi extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border(
                   left: BorderSide(
-                    color: (index % 3 != 0) ? Colors.grey : Colors.white,
+                    color: (index % 3 != 0) ? Colors.grey : Colors.transparent,
                     width: 2,
                   ),
                   bottom: BorderSide(
-                    color: (index < 6) ? Colors.grey : Colors.white,
+                    color: (index < 6) ? Colors.grey : Colors.transparent,
                     width: 2,
                   ),
                 ),

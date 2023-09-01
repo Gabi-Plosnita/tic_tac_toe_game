@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tic_tac_toe_ui/pages/game_page/game_page.dart';
-import 'package:tic_tac_toe_ui/pages/home_page/home_page.dart';
 import 'package:tic_tac_toe_ui/routes/routes_generator.dart';
 import 'package:tic_tac_toe_ui/routes/routes_name.dart';
 
