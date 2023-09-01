@@ -8,13 +8,13 @@ class GameCubit extends Cubit<GameState> implements ListenerInterface {
   GameInterface game;
 
   GameCubit()
-    : game = GameInterface(),
-      super(GameState(
-        board:List.generate(3, (row) => List.generate(3, (col) => Piece.none)),
-        turn: Piece.x,
-        gameState: State.playing,
-      )) 
-  {
+      : game = GameInterface(),
+        super(GameState(
+          board:
+              List.generate(3, (row) => List.generate(3, (col) => Piece.none)),
+          turn: Piece.x,
+          gameState: State.playing,
+        )) {
     game.addListener(this);
   }
 
@@ -28,7 +28,8 @@ class GameCubit extends Cubit<GameState> implements ListenerInterface {
     for (int i = 0; i < 3; i++) {
       List<Piece> boardRow = [];
       for (int j = 0; j < 3; j++) {
-        boardRow.add((i == row && j == col) ? state.turn : game.getPiece(row, col));
+        Piece piece = (i == row && j == col) ? state.turn : game.getPiece(i, j);
+        boardRow.add(piece);
       }
       newBoard.add(boardRow);
     }
@@ -37,7 +38,7 @@ class GameCubit extends Cubit<GameState> implements ListenerInterface {
 
   @override
   void onGameOver(State gameState) {
-    emit(state.copyWith(gameState: gameState));
+    emit(state.copyWith(board: state.board, gameState: gameState));
   }
 
   @override
@@ -50,8 +51,9 @@ class GameCubit extends Cubit<GameState> implements ListenerInterface {
       }
       newBoard.add(boardRow);
     }
-    emit(state.copyWith(board: newBoard, turn: Piece.x,gameState: State.playing));
+    emit(state.copyWith(
+        board: newBoard, turn: Piece.x, gameState: State.playing));
   }
-  
+
   // Add methods for managing game state, making moves, etc.
 }

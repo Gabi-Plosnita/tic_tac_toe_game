@@ -31,12 +31,14 @@ class BoardUi extends StatelessWidget {
             },
             child: BlocBuilder<GameCubit, GameState>(
               builder: (context, state) {
-                Piece piece = state.board[(index / 3).truncate()][index % 3];
                 return Container(
                   decoration: BoxDecoration(
-                    image: (piece != Piece.none)
+                    image: (state.board[(index / 3).truncate()][index % 3] !=
+                            Piece.none)
                         ? DecorationImage(
-                            image: (state.turn == Piece.x)
+                            image: (state.board[(index / 3).truncate()]
+                                        [index % 3] ==
+                                    Piece.x)
                                 ? AssetImage('assets/X_transparent.png')
                                 : AssetImage('assets/O_transparent.png'),
                             fit: BoxFit.cover,
