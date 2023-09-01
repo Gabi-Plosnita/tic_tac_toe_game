@@ -22,6 +22,14 @@ class GameCubit extends Cubit<GameState> implements ListenerInterface {
     game.makeMove(row, col);
   }
 
+  void resetGame() {
+    game.resetGame();
+  }
+
+  void setStrategy(Strategy strategy) {
+    game.setStrategy(strategy);
+  }
+
   @override
   void onMoveMade(int row, int col) {
     List<List<Piece>> newBoard = [];
