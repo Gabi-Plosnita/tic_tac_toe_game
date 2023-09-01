@@ -6,18 +6,16 @@ part 'game_state.dart';
 
 class GameCubit extends Cubit<GameState> implements ListenerInterface {
   GameInterface game;
-  List<ListenerInterface> listeners;
 
   GameCubit()
     : game = GameInterface(),
-      listeners=[],
       super(GameState(
         board:List.generate(3, (row) => List.generate(3, (col) => Piece.none)),
         turn: Piece.x,
         gameState: State.playing,
       )) 
   {
-    listeners.add(this);
+    game.addListener(this);
   }
 
   void makeMove(int row, int col) {

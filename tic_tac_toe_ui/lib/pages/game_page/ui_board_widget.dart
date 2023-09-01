@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tic_tac_toe/tic_tac_toe_lib.dart';
 import 'package:tic_tac_toe_ui/cubit/game_cubit.dart';
 
 class BoardUi extends StatelessWidget {
@@ -19,17 +20,28 @@ class BoardUi extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () {
-              BlocProvider.of<GameCubit>(context)
-                  .makeMove((index / 3).truncate(), index % 3);
+              try {
+                BlocProvider.of<GameCubit>(context)
+                    .makeMove((index / 3).truncate(), index % 3);
+              } on InvalidPositionException catch (e) {
+                print(e);
+              } on AlreadyOcuppiedException catch (e) {
+                print(e);
+              }
             },
             child: BlocBuilder<GameCubit, GameState>(
               builder: (context, state) {
+                Piece piece = state.board[(index / 3).truncate()][index % 3];
                 return Container(
                   decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/O_transparent.png',), 
-                      fit: BoxFit.cover, 
-                    ),
+                    image: (piece != Piece.none)
+                        ? DecorationImage(
+                            image: (state.turn == Piece.x)
+                                ? AssetImage('assets/X_transparent.png')
+                                : AssetImage('assets/O_transparent.png'),
+                            fit: BoxFit.cover,
+                          )
+                        : null,
                     border: Border(
                       left: BorderSide(
                         color:
