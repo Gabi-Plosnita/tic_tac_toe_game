@@ -11,7 +11,7 @@ class HomePageHeader extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 50),
           child: SizedBox(
             height: MediaQuery.of(context).size.height * 0.2,
-            child: Image.asset('assets/logo.png'),
+            child: Image.asset('assets/logo_transparent.png'),
           ),
         ),
         const Text(
