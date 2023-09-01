@@ -25,9 +25,9 @@ class HomePageMenu extends StatelessWidget {
               children: [
                 SizedBox(width: 8),
                 Text(
-                  'Play',
+                  'Play with AI',
                   style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 25,
                   ),
                 ),
               ],
@@ -50,9 +50,9 @@ class HomePageMenu extends StatelessWidget {
             children: [
               SizedBox(width: 8),
               Text(
-                'Settings',
+                '2 Players',
                 style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 25,
                 ),
               ),
             ],

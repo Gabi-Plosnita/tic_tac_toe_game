@@ -5,23 +5,37 @@ class BoardUi extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      itemCount: 9,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
-      ),
-      itemBuilder: (BuildContext context, int index) {
-        return Container(
-          decoration: BoxDecoration(
-            border: Border(
-              left: BorderSide(
-                  color: (index % 3 != 0) ? Colors.grey : Colors.white),
-              bottom:
-                  BorderSide(color: (index < 6) ? Colors.grey : Colors.white),
+    return SizedBox(
+      height: 350,
+      width: 350,
+      child: GridView.builder(
+        itemCount: 9,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          childAspectRatio: 1.0,
+        ),
+        itemBuilder: (BuildContext context, int index) {
+          return GestureDetector(
+            onTap: () {
+              print('Clicked');
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  left: BorderSide(
+                    color: (index % 3 != 0) ? Colors.grey : Colors.white,
+                    width: 2,
+                  ),
+                  bottom: BorderSide(
+                    color: (index < 6) ? Colors.grey : Colors.white,
+                    width: 2,
+                  ),
+                ),
+              ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
