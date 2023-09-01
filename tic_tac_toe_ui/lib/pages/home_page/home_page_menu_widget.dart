@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tic_tac_toe_ui/routes/routes_name.dart';
 
 class HomePageMenu extends StatelessWidget {
   const HomePageMenu({super.key});
@@ -11,7 +12,7 @@ class HomePageMenu extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 20),
           child: ElevatedButton(
             onPressed: () {
-              // Your button's onPressed action
+              Navigator.pushNamed(context, gamePage);
             },
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
@@ -36,7 +37,7 @@ class HomePageMenu extends StatelessWidget {
         ),
         ElevatedButton(
           onPressed: () {
-            // Your button's onPressed action
+            Navigator.pushNamed(context, gamePage);
           },
           style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
