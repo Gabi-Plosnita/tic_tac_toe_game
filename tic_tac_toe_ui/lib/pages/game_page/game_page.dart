@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tic_tac_toe_ui/cubit/game_cubit.dart';
 import 'package:tic_tac_toe_ui/pages/game_page/score_bar_widget.dart';
 import 'package:tic_tac_toe_ui/pages/game_page/ui_board_widget.dart';
 
@@ -8,9 +10,7 @@ class GamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-
-      ),
+      appBar: AppBar(),
       body: Container(
         color: Colors.white,
         child: Center(
@@ -21,7 +21,12 @@ class GamePage extends StatelessWidget {
               Flexible(
                 child: BoardUi(),
               ),
-              SizedBox(),
+              IconButton(
+                onPressed: () {
+                  BlocProvider.of<GameCubit>(context).resetGame();
+                },
+                icon: const Icon(Icons.refresh),
+              )
             ],
           ),
         ),
