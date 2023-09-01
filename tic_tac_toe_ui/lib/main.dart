@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tic_tac_toe_ui/cubit/game_cubit.dart';
 import 'package:tic_tac_toe_ui/routes/routes_generator.dart';
 import 'package:tic_tac_toe_ui/routes/routes_name.dart';
 
@@ -11,11 +13,14 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Tic Tac Toe',
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: RoutesGenerator.generateRoute,
-      initialRoute: homePage,
+    return BlocProvider(
+      create: (context) => GameCubit(),
+      child: const MaterialApp(
+        title: 'Tic Tac Toe',
+        debugShowCheckedModeBanner: false,
+        onGenerateRoute: RoutesGenerator.generateRoute,
+        initialRoute: homePage,
+      ),
     );
   }
 }
