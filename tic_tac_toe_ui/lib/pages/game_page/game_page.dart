@@ -21,11 +21,25 @@ class GamePage extends StatelessWidget {
               Flexible(
                 child: BoardUi(),
               ),
-              IconButton(
-                onPressed: () {
-                  BlocProvider.of<GameCubit>(context).resetGame();
-                },
-                icon: const Icon(Icons.refresh),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 10,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                  color: Colors.white, // Background color
+                ),
+                child: IconButton(
+                  onPressed: () {
+                    BlocProvider.of<GameCubit>(context).resetGame();
+                  },
+                  icon: const Icon(Icons.refresh),
+                ),
               )
             ],
           ),
