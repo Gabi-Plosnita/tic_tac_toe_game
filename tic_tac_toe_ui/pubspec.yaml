@@ -28,3 +28,5 @@ flutter:
     - assets/O_transparent.png
     - assets/logo.png
     - assets/logo_transparent.png
+    - assets/robot_icon.png
+    - assets/human_icon.png

@@ -27,15 +27,24 @@ class HomePageMenu extends StatelessWidget {
               fixedSize: const Size(200, 50),
               backgroundColor: const Color.fromARGB(255, 88, 124, 229),
             ),
-            child: const Row(
-              mainAxisSize: MainAxisSize.min,
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                SizedBox(width: 8),
-                Text(
-                  'Play with AI',
+                Image.asset(
+                  'assets/human_icon.png',
+                  height: 30,
+                ),
+                const Text(
+                  'VS',
                   style: TextStyle(
-                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
                   ),
+                ),
+                Image.asset(
+                  'assets/robot_icon.png',
+                  height: 30,
                 ),
               ],
             ),
@@ -55,15 +64,24 @@ class HomePageMenu extends StatelessWidget {
             fixedSize: const Size(200, 50),
             backgroundColor: const Color.fromARGB(255, 88, 124, 229),
           ),
-          child: const Row(
-            mainAxisSize: MainAxisSize.min,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisSize: MainAxisSize.max,
             children: [
-              SizedBox(width: 8),
-              Text(
-                '2 Players',
+              Image.asset(
+                'assets/human_icon.png',
+                height: 30,
+              ),
+              const Text(
+                'VS',
                 style: TextStyle(
-                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
                 ),
+              ),
+              Image.asset(
+                'assets/human_icon.png',
+                height: 30,
               ),
             ],
           ),
