@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tic_tac_toe/tic_tac_toe_lib.dart' as game_logic;
+import 'package:tic_tac_toe_ui/cubit/game_cubit.dart';
+import 'package:tic_tac_toe_ui/routes/routes_name.dart';
 
 class WinnerDialog extends StatelessWidget {
   game_logic.State result;
@@ -9,7 +12,6 @@ class WinnerDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      // Set a transparent background so that the gradient is visible
       backgroundColor: Colors.transparent,
       content: Container(
         height: 200,
@@ -47,24 +49,58 @@ class WinnerDialog extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 20.0),
-            TextButton(
-              child: Text(
-                'OK',
-                style: TextStyle(
-                  color: Colors.black, // Button text color
-                  fontSize: 18.0,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 10,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                    color: Colors.white,
+                  ),
+                  child: IconButton(
+                    color: Colors.blue,
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                      Navigator.pushNamed(context, homePage);
+                    },
+                    icon: const Icon(Icons.home),
+                  ),
                 ),
-              ),
-              onPressed: () {
-                Navigator.of(context).pop(); // Close the dialog
-              },
-            ),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 10,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                    color: Colors.white,
+                  ),
+                  child: IconButton(
+                    color: Colors.orange,
+                    onPressed: () {
+                      BlocProvider.of<GameCubit>(context).resetGame();
+                      Navigator.of(context).pop();
+                    },
+                    icon: const Icon(Icons.refresh),
+                  ),
+                ),
+              ],
+            )
           ],
         ),
       ),
     );
   }
 }
-
-// Rest of your code...
