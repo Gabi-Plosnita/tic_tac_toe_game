@@ -18,7 +18,7 @@ class HomePageMenu extends StatelessWidget {
             onPressed: () {
               showDialog(
                 context: context,
-                barrierDismissible: false,
+                //barrierDismissible: false,
                 builder: (BuildContext context) {
                   return DifficultyDialogWidget();
                 },
@@ -29,7 +29,6 @@ class HomePageMenu extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
               ),
               fixedSize: const Size(200, 50),
-              backgroundColor: const Color.fromARGB(255, 88, 124, 229),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.max,
@@ -66,7 +65,6 @@ class HomePageMenu extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
             fixedSize: const Size(200, 50),
-            backgroundColor: const Color.fromARGB(255, 88, 124, 229),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

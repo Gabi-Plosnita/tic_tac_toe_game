@@ -30,6 +30,12 @@ class DifficultyDialogWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                fixedSize: const Size(150, 50),
+              ),
               onPressed: () {
                 BlocProvider.of<GameCubit>(context).resetGame();
                 BlocProvider.of<GameCubit>(context)
@@ -43,6 +49,12 @@ class DifficultyDialogWidget extends StatelessWidget {
               ),
             ),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                fixedSize: const Size(150, 50),
+              ),
               onPressed: () {
                 BlocProvider.of<GameCubit>(context).resetGame();
                 BlocProvider.of<GameCubit>(context)
@@ -56,6 +68,12 @@ class DifficultyDialogWidget extends StatelessWidget {
               ),
             ),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                fixedSize: const Size(150, 50),
+              ),
               onPressed: () {
                 BlocProvider.of<GameCubit>(context).resetGame();
                 BlocProvider.of<GameCubit>(context)
