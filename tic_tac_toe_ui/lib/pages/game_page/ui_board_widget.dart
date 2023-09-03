@@ -29,8 +29,9 @@ class BoardUi extends StatelessWidget {
                 if (result != game_logic.State.playing) {
                   showDialog(
                     context: context,
+                    barrierDismissible: false,
                     builder: (BuildContext context) {
-                      return WinnerDialog(result: result);
+                      return ResultDialogWidget(result: result);
                     },
                   );
                 }

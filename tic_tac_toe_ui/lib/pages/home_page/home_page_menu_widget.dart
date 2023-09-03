@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tic_tac_toe/tic_tac_toe_lib.dart';
 import 'package:tic_tac_toe_ui/cubit/game_cubit.dart';
+import 'package:tic_tac_toe_ui/pages/home_page/difficulty_widget.dart';
 import 'package:tic_tac_toe_ui/routes/routes_name.dart';
 
 class HomePageMenu extends StatelessWidget {
@@ -15,10 +16,13 @@ class HomePageMenu extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 20),
           child: ElevatedButton(
             onPressed: () {
-              BlocProvider.of<GameCubit>(context).resetGame();
-              BlocProvider.of<GameCubit>(context)
-                  .setStrategy(Strategy.impossible);
-              Navigator.pushNamed(context, gamePage);
+              showDialog(
+                context: context,
+                barrierDismissible: false,
+                builder: (BuildContext context) {
+                  return DifficultyDialogWidget();
+                },
+              );
             },
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(

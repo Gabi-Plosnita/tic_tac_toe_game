@@ -4,10 +4,10 @@ import 'package:tic_tac_toe/tic_tac_toe_lib.dart' as game_logic;
 import 'package:tic_tac_toe_ui/cubit/game_cubit.dart';
 import 'package:tic_tac_toe_ui/routes/routes_name.dart';
 
-class WinnerDialog extends StatelessWidget {
+class ResultDialogWidget extends StatelessWidget {
   game_logic.State result;
 
-  WinnerDialog({required this.result});
+  ResultDialogWidget({required this.result});
 
   @override
   Widget build(BuildContext context) {
