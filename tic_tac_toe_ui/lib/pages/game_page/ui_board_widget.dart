@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tic_tac_toe/tic_tac_toe_lib.dart';
+import 'package:tic_tac_toe/tic_tac_toe_lib.dart' as game_logic;
 import 'package:tic_tac_toe_ui/cubit/game_cubit.dart';
+import 'package:tic_tac_toe_ui/pages/game_page/game_over_widget.dart';
 
 class BoardUi extends StatelessWidget {
   const BoardUi({super.key});
@@ -23,9 +24,19 @@ class BoardUi extends StatelessWidget {
               try {
                 BlocProvider.of<GameCubit>(context)
                     .makeMove((index / 3).truncate(), index % 3);
-              } on InvalidPositionException catch (e) {
+                game_logic.State result =
+                    BlocProvider.of<GameCubit>(context).getGameResult();
+                if (result != game_logic.State.playing) {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return WinnerDialog(result: result);
+                    },
+                  );
+                }
+              } on game_logic.InvalidPositionException catch (e) {
                 print(e);
-              } on AlreadyOcuppiedException catch (e) {
+              } on game_logic.AlreadyOcuppiedException catch (e) {
                 print(e);
               }
             },
@@ -34,11 +45,11 @@ class BoardUi extends StatelessWidget {
                 return Container(
                   decoration: BoxDecoration(
                     image: (state.board[(index / 3).truncate()][index % 3] !=
-                            Piece.none)
+                            game_logic.Piece.none)
                         ? DecorationImage(
                             image: (state.board[(index / 3).truncate()]
                                         [index % 3] ==
-                                    Piece.x)
+                                    game_logic.Piece.x)
                                 ? const AssetImage('assets/X_transparent.png')
                                 : const AssetImage('assets/O_transparent.png'),
                             fit: BoxFit.cover,

@@ -30,6 +30,10 @@ class GameCubit extends Cubit<GameState> implements ListenerInterface {
     game.setStrategy(strategy);
   }
 
+  State getGameResult() {
+    return game.state;
+  }
+
   @override
   void onMoveMade(int row, int col) {
     List<List<Piece>> newBoard = [];

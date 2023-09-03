@@ -45,7 +45,7 @@ class _ScoreBarState extends State<ScoreBar> {
                   offset: const Offset(0, 3),
                 ),
               ],
-              color: Colors.white, // Background color
+              color: Colors.white,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
