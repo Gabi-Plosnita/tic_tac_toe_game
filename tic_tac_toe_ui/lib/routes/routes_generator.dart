@@ -5,13 +5,13 @@ import 'package:tic_tac_toe_ui/routes/routes_name.dart';
 
 class RoutesGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    switch(settings.name){
+    switch (settings.name) {
       case homePage:
-        return MaterialPageRoute(builder: (context) => HomePage());
+        return MaterialPageRoute(builder: (context) => const HomePage());
       case gamePage:
-        return MaterialPageRoute(builder: (context) => GamePage());
+        return MaterialPageRoute(builder: (context) => const GamePage());
     }
-    
+
     return MaterialPageRoute(
       builder: (context) => const Scaffold(
         body: Text('Page is not found'),

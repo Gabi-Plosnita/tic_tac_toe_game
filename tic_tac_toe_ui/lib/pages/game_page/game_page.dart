@@ -17,8 +17,8 @@ class GamePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              ScoreBar(),
-              Flexible(
+              const ScoreBar(),
+              const Flexible(
                 child: BoardUi(),
               ),
               Container(
@@ -29,7 +29,7 @@ class GamePage extends StatelessWidget {
                       color: Colors.grey.withOpacity(0.5),
                       spreadRadius: 5,
                       blurRadius: 10,
-                      offset: Offset(0, 3),
+                      offset: const Offset(0, 3),
                     ),
                   ],
                   color: Colors.white, // Background color

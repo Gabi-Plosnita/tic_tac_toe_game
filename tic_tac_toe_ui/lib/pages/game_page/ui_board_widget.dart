@@ -13,7 +13,7 @@ class BoardUi extends StatelessWidget {
       width: 350,
       child: GridView.builder(
         itemCount: 9,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
           childAspectRatio: 1.0,
         ),
@@ -39,8 +39,8 @@ class BoardUi extends StatelessWidget {
                             image: (state.board[(index / 3).truncate()]
                                         [index % 3] ==
                                     Piece.x)
-                                ? AssetImage('assets/X_transparent.png')
-                                : AssetImage('assets/O_transparent.png'),
+                                ? const AssetImage('assets/X_transparent.png')
+                                : const AssetImage('assets/O_transparent.png'),
                             fit: BoxFit.cover,
                           )
                         : null,
