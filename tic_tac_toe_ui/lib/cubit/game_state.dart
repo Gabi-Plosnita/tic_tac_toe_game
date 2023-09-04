@@ -6,18 +6,21 @@ class GameState extends Equatable  {
     required this.board,
     required this.turn,
     required this.gameState,
+    required this.timeLeft,
   });
 
   GameState copyWith({
      List<List<Piece>>? board,
      Piece? turn,
-     bool? isOver,
-      State? gameState,
-  }) => GameState(board: board?? this.board, turn: turn?? this.turn, gameState: gameState?? this.gameState);
+     State? gameState,
+     int? timeLeft,
+  }) => GameState(board: board?? this.board, turn: turn?? this.turn, 
+  gameState: gameState?? this.gameState,timeLeft: timeLeft?? this.timeLeft);
 
   final List<List<Piece>> board;
   final Piece turn;
   final State gameState;
+  final int timeLeft;
   
   @override
   List<Object?> get props => [board,turn,gameState];

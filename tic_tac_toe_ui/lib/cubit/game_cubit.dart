@@ -14,6 +14,7 @@ class GameCubit extends Cubit<GameState> implements ListenerInterface {
               List.generate(3, (row) => List.generate(3, (col) => Piece.none)),
           turn: Piece.x,
           gameState: State.playing,
+          timeLeft: 5000,
         )) {
     game.addListener(this);
   }
@@ -67,5 +68,9 @@ class GameCubit extends Cubit<GameState> implements ListenerInterface {
         board: newBoard, turn: Piece.x, gameState: State.playing));
   }
 
-  // Add methods for managing game state, making moves, etc.
+  @override 
+  void onTimePassed(){
+    emit(state.copyWith(timeLeft: game.timeLeft));
+  }
+
 }
