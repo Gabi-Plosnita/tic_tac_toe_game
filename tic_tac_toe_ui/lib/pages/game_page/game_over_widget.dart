@@ -69,7 +69,8 @@ class ResultDialogWidget extends StatelessWidget {
                     color: Colors.blue,
                     onPressed: () {
                       Navigator.of(context).pop();
-                      Navigator.pushNamed(context, homePage);
+                      Navigator.of(context).pop();
+                      //Navigator.pushNamed(context, homePage);
                     },
                     icon: const Icon(Icons.home),
                   ),
