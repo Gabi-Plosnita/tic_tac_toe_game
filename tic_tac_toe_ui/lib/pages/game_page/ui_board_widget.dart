@@ -45,10 +45,10 @@ class BoardUi extends StatelessWidget {
               builder: (context, state) {
                 return Container(
                   decoration: BoxDecoration(
-                    image: (state.board[(index / 3).truncate()][index % 3] !=
+                    image: (state.board[(index ~/ 3)][index % 3] !=
                             game_logic.Piece.none)
                         ? DecorationImage(
-                            image: (state.board[(index / 3).truncate()]
+                            image: (state.board[(index ~/ 3)]
                                         [index % 3] ==
                                     game_logic.Piece.x)
                                 ? const AssetImage('assets/X_transparent.png')
