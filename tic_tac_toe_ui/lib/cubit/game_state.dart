@@ -23,5 +23,5 @@ class GameState extends Equatable  {
   final int timeLeft;
   
   @override
-  List<Object?> get props => [board,turn,gameState];
+  List<Object?> get props => [board,turn,gameState,timeLeft];
 }
