@@ -12,7 +12,13 @@ class GamePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // to reset timer // 
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            BlocProvider.of<GameCubit>(context).resetGame();
+            Navigator.of(context).pop();
+          },
+        ),
       ),
       body: Container(
         color: Colors.white,
