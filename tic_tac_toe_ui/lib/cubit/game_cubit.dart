@@ -15,8 +15,10 @@ class GameCubit extends Cubit<GameState> implements ListenerInterface {
           turn: Piece.x,
           gameState: State.playing,
           timeLeft: 5000,
+          totalTime: 5000,
         )) {
     game.addListener(this);
+    game.setTimer(duration: 5000, frequency: 10);
   }
 
   void makeMove(int row, int col) {
@@ -65,7 +67,7 @@ class GameCubit extends Cubit<GameState> implements ListenerInterface {
       newBoard.add(boardRow);
     }
     emit(state.copyWith(
-        board: newBoard, turn: Piece.x, gameState: State.playing,timeLeft: 5000));
+        board: newBoard, turn: Piece.x, gameState: State.playing,timeLeft: game.timeLeft));
   }
 
   @override 
