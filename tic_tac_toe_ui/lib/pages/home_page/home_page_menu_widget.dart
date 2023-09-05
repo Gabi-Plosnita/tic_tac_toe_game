@@ -20,7 +20,7 @@ class HomePageMenu extends StatelessWidget {
                 context: context,
                 //barrierDismissible: false,
                 builder: (BuildContext context) {
-                  return DifficultyDialogWidget();
+                  return const DifficultyDialogWidget();
                 },
               );
             },

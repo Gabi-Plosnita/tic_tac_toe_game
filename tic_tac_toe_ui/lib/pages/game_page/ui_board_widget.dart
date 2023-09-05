@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tic_tac_toe/tic_tac_toe_lib.dart' as game_logic;
 import 'package:tic_tac_toe_ui/cubit/game_cubit.dart';
-import 'package:tic_tac_toe_ui/pages/game_page/game_over_widget.dart';
+import 'package:tic_tac_toe_ui/pages/game_page/result_dialog_widget.dart';
 
 class BoardUi extends StatelessWidget {
   const BoardUi({super.key});

@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tic_tac_toe/tic_tac_toe_lib.dart' as game_logic;
 import 'package:tic_tac_toe_ui/cubit/game_cubit.dart';
-import 'package:tic_tac_toe_ui/routes/routes_name.dart';
 
 class ResultDialogWidget extends StatelessWidget {
-  game_logic.State result;
+  final game_logic.State result;
+  const ResultDialogWidget({super.key,required this.result});
 
-  ResultDialogWidget({required this.result});
-
-  @override
+ @override
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: Colors.transparent,
