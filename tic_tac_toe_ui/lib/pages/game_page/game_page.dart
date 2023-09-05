@@ -11,7 +11,9 @@ class GamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        // to reset timer // 
+      ),
       body: Container(
         color: Colors.white,
         child: Center(

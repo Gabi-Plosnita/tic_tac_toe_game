@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tic_tac_toe_ui/cubit/game_cubit.dart';
+import 'package:tic_tac_toe/tic_tac_toe_lib.dart' as game_logic;
+import 'package:tic_tac_toe_ui/pages/game_page/game_over_widget.dart';
 
 class TimeBar extends StatelessWidget {
   const TimeBar({Key? key}) : super(key: key);
@@ -11,20 +13,33 @@ class TimeBar extends StatelessWidget {
     return Container(
       height: 20,
       width: 200,
-      decoration: BoxDecoration(
-        color: Colors.red,
-      ),
       child: BlocBuilder<GameCubit, GameState>(
         builder: (context, state) {
           final totalMilliseconds = 5000;
           final remainingMilliseconds = state.timeLeft;
-    
+
           final percentage = remainingMilliseconds / totalMilliseconds;
-    
+
+          if (remainingMilliseconds <= 0) {
+            game_logic.State result =
+                BlocProvider.of<GameCubit>(context).getGameResult();
+            if (result != game_logic.State.playing) {
+              Future.delayed(Duration.zero, () {
+                showDialog(
+                  context: context,
+                  barrierDismissible: false,
+                  builder: (BuildContext context) {
+                    return ResultDialogWidget(result: result);
+                  },
+                );
+              });
+            }
+          }
+
           return LinearProgressIndicator(
-            value: 1 - percentage, // Reverse the value to represent time running out
-            backgroundColor: Colors.grey, // Background color
-            valueColor: AlwaysStoppedAnimation<Color>(Colors.blue), // Bar color
+            value: 1 - percentage,
+            backgroundColor: Colors.grey,
+            valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
           );
         },
       ),
