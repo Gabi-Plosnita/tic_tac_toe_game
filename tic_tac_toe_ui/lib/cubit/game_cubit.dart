@@ -65,7 +65,7 @@ class GameCubit extends Cubit<GameState> implements ListenerInterface {
       newBoard.add(boardRow);
     }
     emit(state.copyWith(
-        board: newBoard, turn: Piece.x, gameState: State.playing));
+        board: newBoard, turn: Piece.x, gameState: State.playing,timeLeft: 5000));
   }
 
   @override 
