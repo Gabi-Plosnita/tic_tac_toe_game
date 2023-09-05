@@ -17,7 +17,7 @@ class TimeBar extends StatelessWidget {
         borderRadius: BorderRadius.circular(100),
         child: BlocBuilder<GameCubit, GameState>(
           builder: (context, state) {
-            final totalMilliseconds = 5000;
+            final totalMilliseconds = 5000; // state.totaltime
             final remainingMilliseconds = state.timeLeft;
       
             final percentage = remainingMilliseconds / totalMilliseconds;
