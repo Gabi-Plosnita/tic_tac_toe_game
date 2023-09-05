@@ -13,35 +13,40 @@ class TimeBar extends StatelessWidget {
     return Container(
       height: 20,
       width: 200,
-      child: BlocBuilder<GameCubit, GameState>(
-        builder: (context, state) {
-          final totalMilliseconds = 5000;
-          final remainingMilliseconds = state.timeLeft;
-
-          final percentage = remainingMilliseconds / totalMilliseconds;
-
-          if (remainingMilliseconds <= 0) {
-            game_logic.State result =
-                BlocProvider.of<GameCubit>(context).getGameResult();
-            if (result != game_logic.State.playing) {
-              Future.delayed(Duration.zero, () {
-                showDialog(
-                  context: context,
-                  barrierDismissible: false,
-                  builder: (BuildContext context) {
-                    return ResultDialogWidget(result: result);
-                  },
-                );
-              });
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(100),
+        child: BlocBuilder<GameCubit, GameState>(
+          builder: (context, state) {
+            final totalMilliseconds = 5000;
+            final remainingMilliseconds = state.timeLeft;
+      
+            final percentage = remainingMilliseconds / totalMilliseconds;
+      
+            if (remainingMilliseconds <= 0) {
+              game_logic.State result =
+                  BlocProvider.of<GameCubit>(context).getGameResult();
+              if (result != game_logic.State.playing) {
+                Future.delayed(Duration.zero, () {
+                  showDialog(
+                    context: context,
+                    barrierDismissible: false,
+                    builder: (BuildContext context) {
+                      return ResultDialogWidget(result: result);
+                    },
+                  );
+                });
+              }
             }
-          }
-
-          return LinearProgressIndicator(
-            value: 1 - percentage,
-            backgroundColor: Colors.grey,
-            valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
-          );
-        },
+      
+            return LinearProgressIndicator(
+              value: percentage,
+              backgroundColor: Colors.red,
+              valueColor: AlwaysStoppedAnimation<Color>(
+                (state.turn == game_logic.Piece.x) ? Colors.blue : Colors.orange,
+              ),
+            );
+          },
+        ),
       ),
     );
   }
