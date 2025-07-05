@@ -50,7 +50,7 @@ When a game ends (see Image 4):
 - **Language:** Dart
 - **Framework:** Flutter
 
-![Main Menu](./assets/1.jpg)
-![Difficulty Selection](./assets/2.jpg)
-![Game Board](./assets/3.jpg)
-![Game Over Screen](./assets/4.jpg)
+![Main Menu](.tic_tac_toe_ui/assets/1.jpg)
+![Difficulty Selection](.tic_tac_toe_ui/assets/2.jpg)
+![Game Board](.tic_tac_toe_ui/assets/3.jpg)
+![Game Over Screen](.tic_tac_toe_ui/assets/4.jpg)
